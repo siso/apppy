@@ -5,7 +5,7 @@
 Dependencies:
 
 ```
-$ pip install flask
+$ pip install flask MySQL-python gnunicorn
 ```
 
 Run Flask app:
