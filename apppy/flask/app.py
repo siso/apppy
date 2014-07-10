@@ -7,6 +7,7 @@ import MySQLdb
 
 from flask import Flask
 from flask import request
+from werkzeug.contrib.fixers import ProxyFix
 
 # ##########
 # Flask'ing
@@ -61,6 +62,8 @@ def ip():
     '''
     out = "Your IPv4 address is: %s" % request.remote_addr
     return out, 200
+
+app.wsgi_app = ProxyFix(app.wsgi_app)
 
 def main():
     # ##########
