@@ -8,6 +8,7 @@ import MySQLdb
 from flask import Flask
 from flask import request
 from werkzeug.contrib.fixers import ProxyFix
+import ConfigParser
 
 # ##########
 # Flask'ing
@@ -31,12 +32,20 @@ def db():
     test db connection
     '''
     out = 'connecting to MySQL db... '
+
+    config = None
+    try:
+        config = ConfigParser.ConfigParser()
+        config.read('/opt/apppy/etc/apppy.conf')
+    except:
+        out += 'failed'
+        return out, 500
     
     try:
-        db = MySQLdb.connect(host="localhost",
-                             user="apppy",
-                             passwd="qwerty",
-                             db="apppy")
+        db = MySQLdb.connect(host=config.get('db', 'host'),
+                             user=config.get('db', 'user'),
+                             passwd=config.get('db', 'passwd'),
+                             db=config.get('db', 'db'))
 
 #         cur = db.cursor() 
 #     
