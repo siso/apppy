@@ -23,7 +23,7 @@ def index():
     '''
     landing page
     '''
-    out = '¡Hola!'
+    out = 'Hello'
     return out, 200
 
 @app.route('/db', methods=['GET'])
