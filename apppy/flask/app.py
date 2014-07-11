@@ -36,7 +36,7 @@ def db():
     config = None
     try:
         config = ConfigParser.ConfigParser()
-        config.read('/opt/apppy/etc/apppy.conf')
+        config.read('/etc/apppy.conf')
     except:
         out += 'failed'
         return out, 500
