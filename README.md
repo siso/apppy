@@ -8,13 +8,29 @@ Dependencies:
 $ pip install flask MySQL-python gnunicorn
 ```
 
+Run Gnunicorn:
+
+```
+# /etc/init.d/apppy start
+```
+
+and connect on port *8000*:
+
+```
+$ http http://localhost:8000/index
+$ http http://localhost:8000/db
+$ http http://localhost:8000/ip
+```
+
+## Flask
+
 Run Flask app:
 
 ```
 $ python -m apppy.flask.app
 ```
 
-Connect to Flask webserver:
+Connect to Flask webserver on port *5000*:
 
 ```
 $ http http://localhost:5000/index
